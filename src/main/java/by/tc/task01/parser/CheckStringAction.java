@@ -2,7 +2,7 @@ package by.tc.task01.parser;
 
 import java.util.List;
 
-class CheckString {
+class CheckStringAction {
     boolean isStringCorrect(String line, List<String> list) {
         boolean isRight;
         isRight = isParamsOfStringCorrect(line, list);

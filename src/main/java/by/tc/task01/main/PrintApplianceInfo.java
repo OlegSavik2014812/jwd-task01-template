@@ -1,5 +1,6 @@
 package by.tc.task01.main;
 
+import by.tc.task01.constant.ConstantForProject;
 import by.tc.task01.entity.Appliance;
 
 import java.io.BufferedWriter;
@@ -18,8 +19,8 @@ public class PrintApplianceInfo {
     private static void writeApplianceToFile(Appliance appliance) {
 
         try {
-
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(("src/main/resources/appliances_db_out.txt"),true));
+            FileWriter fileWriter=new FileWriter(ConstantForProject.PATH_OF_OUTPUT_FILE,true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             String infoAboutAppliance = appliance.toString();
             bufferedWriter.write(infoAboutAppliance);
             bufferedWriter.newLine();

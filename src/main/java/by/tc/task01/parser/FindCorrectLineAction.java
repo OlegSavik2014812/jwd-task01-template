@@ -5,18 +5,18 @@ import by.tc.task01.entity.criteria.Criteria;
 import java.io.*;
 import java.util.List;
 
-public class FindCorrectString {
+public class FindCorrectLineAction {
     private String path;
-    private CheckString checkString;
+    private CheckStringAction checkStringAction;
     private PrepareForSearch prepareForSearch;
 
-    public FindCorrectString(String path) {
+    public FindCorrectLineAction(String path) {
         this.path = path;
-        checkString = new CheckString();
+        checkStringAction = new CheckStringAction();
         prepareForSearch = new PrepareForSearch();
     }
 
-    public <E> String findCorrectString(Criteria<E> criteria) throws IOException {
+    public <E> String findCorrectLine(Criteria<E> criteria) throws IOException {
         File file = new File(path);
         BufferedReader bufferedReader = null;
         List list = prepareForSearch.formateMap(criteria);
@@ -26,7 +26,7 @@ public class FindCorrectString {
             bufferedReader = new BufferedReader(new FileReader(file));
 
             while ((line = bufferedReader.readLine()) != null) {
-                if (checkString.isStringCorrect(line, list)) {
+                if (checkStringAction.isStringCorrect(line, list)) {
                     return reform(line);
                 } else {
                     continue;

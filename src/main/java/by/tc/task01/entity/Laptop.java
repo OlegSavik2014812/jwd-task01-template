@@ -1,8 +1,5 @@
 package by.tc.task01.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Laptop extends Appliance {
     // you may add your own code here
     private double batteryCapacity;
@@ -21,6 +18,7 @@ public class Laptop extends Appliance {
         this.cpu = cpu;
         this.displayInches = displayInches;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

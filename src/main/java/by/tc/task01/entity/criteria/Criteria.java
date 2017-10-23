@@ -5,13 +5,13 @@ import java.util.Map;
 
 public class Criteria<E> {
     private String applianceType;
-    private Map<E, Object> criteria = new HashMap<>();
+    private Map<E, Object> criteriaMap = new HashMap<>();
 
     public Criteria() {
     }
 
     public void add(E searchCriteria, Object value) {
-        criteria.put(searchCriteria, value);
+        criteriaMap.put(searchCriteria, value);
     }
 
     public String getApplianceType() {
@@ -22,8 +22,8 @@ public class Criteria<E> {
         this.applianceType = applianceType;
     }
 
-    public Map<E, Object> getCriteria() {
-        return criteria;
-    }
     // you may add your own code here
+    public Map<E, Object> getMapOfCriteria() {
+        return criteriaMap;
+    }
 }

@@ -9,7 +9,7 @@ import java.util.Map;
 class PrepareForSearch {
     public <E> List formateMap(Criteria<E> criteria) {
         List<String> list = new ArrayList<>();
-        Map<E, Object> map = criteria.getCriteria();
+        Map<E, Object> map = criteria.getMapOfCriteria();
         for (Map.Entry<E, Object> eObjectEntry : map.entrySet()) {
             list.add(eObjectEntry.getKey().toString() + "=" + eObjectEntry.getValue().toString());
         }
