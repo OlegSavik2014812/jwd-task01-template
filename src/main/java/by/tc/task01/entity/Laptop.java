@@ -14,7 +14,6 @@ public class Laptop extends Appliance {
 
 
     public Laptop(double batteryCapacity, String operationSystem, int memoryRom, int systemMemory, double cpu, int displayInches) {
-        super();
         this.batteryCapacity = batteryCapacity;
         this.operationSystem = operationSystem;
         this.memoryRom = memoryRom;
@@ -22,29 +21,32 @@ public class Laptop extends Appliance {
         this.cpu = cpu;
         this.displayInches = displayInches;
     }
-
-    public double getBatteryCapacity() {
-        return batteryCapacity;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Laptop laptop = (Laptop) o;
+        if (Double.compare(laptop.batteryCapacity, batteryCapacity) != 0) return false;
+        if (memoryRom != laptop.memoryRom) return false;
+        if (systemMemory != laptop.systemMemory) return false;
+        if (Double.compare(laptop.cpu, cpu) != 0) return false;
+        if (displayInches != laptop.displayInches) return false;
+        return operationSystem != null ? operationSystem.equals(laptop.operationSystem) : laptop.operationSystem == null;
     }
 
-    public String getOperationSystem() {
-        return operationSystem;
-    }
-
-    public int getMemoryRom() {
-        return memoryRom;
-    }
-
-    public int getSystemMemory() {
-        return systemMemory;
-    }
-
-    public double getCpu() {
-        return cpu;
-    }
-
-    public int getDisplayInches() {
-        return displayInches;
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(batteryCapacity);
+        result = (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (operationSystem != null ? operationSystem.hashCode() : 0);
+        result = 31 * result + memoryRom;
+        result = 31 * result + systemMemory;
+        temp = Double.doubleToLongBits(cpu);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + displayInches;
+        return result;
     }
 
     @Override

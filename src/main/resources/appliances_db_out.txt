@@ -1,0 +1,5 @@
+Oven{powerConsumption=1000, weight=10, capacity=32, depth=60, height=45.5, width=59.5}
+Laptop{batteryCapacity=1.5, operationSystem='Linux', memoryRom=8000, systemMemory=1000, cpu=2.2, displayInches=19}
+Oven{powerConsumption=1000, weight=10, capacity=32, depth=60, height=45.5, width=59.5}
+Laptop{batteryCapacity=1.5, operationSystem='Linux', memoryRom=8000, systemMemory=1000, cpu=2.2, displayInches=19}
+TabletPC{batteryCapacity=3, displayInches=14, memoryRom=8000, flashMemoryCapacity=2, color='blue'}

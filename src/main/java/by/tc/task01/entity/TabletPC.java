@@ -1,7 +1,7 @@
 package by.tc.task01.entity;
 
-public class TabletPC extends Appliance{
-	// you may add your own code here
+public class TabletPC extends Appliance {
+    // you may add your own code here
     private int batteryCapacity;
     private int displayInches;
     private int memoryRom;
@@ -16,24 +16,28 @@ public class TabletPC extends Appliance{
         this.color = color;
     }
 
-    public int getBatteryCapacity() {
-        return batteryCapacity;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TabletPC tabletPC = (TabletPC) o;
+
+        if (batteryCapacity != tabletPC.batteryCapacity) return false;
+        if (displayInches != tabletPC.displayInches) return false;
+        if (memoryRom != tabletPC.memoryRom) return false;
+        if (flashMemoryCapacity != tabletPC.flashMemoryCapacity) return false;
+        return color != null ? color.equals(tabletPC.color) : tabletPC.color == null;
     }
 
-    public int getDisplayInches() {
-        return displayInches;
-    }
-
-    public int getMemoryRom() {
-        return memoryRom;
-    }
-
-    public int getFlashMemoryCapacity() {
-        return flashMemoryCapacity;
-    }
-
-    public String getColor() {
-        return color;
+    @Override
+    public int hashCode() {
+        int result = batteryCapacity;
+        result = 31 * result + displayInches;
+        result = 31 * result + memoryRom;
+        result = 31 * result + flashMemoryCapacity;
+        result = 31 * result + (color != null ? color.hashCode() : 0);
+        return result;
     }
 
     @Override

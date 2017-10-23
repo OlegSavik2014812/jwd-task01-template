@@ -1,11 +1,9 @@
 package by.tc.task01.parser;
 
-import by.tc.task01.entity.criteria.Criteria;
-
 import java.util.List;
 
 class CheckString {
-    public <E> boolean isStringCorrect(String line, List<String> list) {
+    boolean isStringCorrect(String line, List<String> list) {
         boolean isRight;
         isRight = isParamsOfStringCorrect(line, list);
         return isRight;

@@ -14,20 +14,26 @@ public class Speakers extends Appliance {
         this.cordLenght = cordLenght;
     }
 
-    public int getPowerConsumption() {
-        return powerConsumption;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Speakers speakers = (Speakers) o;
+
+        if (powerConsumption != speakers.powerConsumption) return false;
+        if (numberOfSpeakers != speakers.numberOfSpeakers) return false;
+        if (cordLenght != speakers.cordLenght) return false;
+        return frequencyRange != null ? frequencyRange.equals(speakers.frequencyRange) : speakers.frequencyRange == null;
     }
 
-    public int getNumberOfSpeakers() {
-        return numberOfSpeakers;
-    }
-
-    public String getFrequencyRange() {
-        return frequencyRange;
-    }
-
-    public int getCordLenght() {
-        return cordLenght;
+    @Override
+    public int hashCode() {
+        int result = powerConsumption;
+        result = 31 * result + numberOfSpeakers;
+        result = 31 * result + (frequencyRange != null ? frequencyRange.hashCode() : 0);
+        result = 31 * result + cordLenght;
+        return result;
     }
 
     @Override

@@ -21,8 +21,10 @@ public class FindCorrectString {
         BufferedReader bufferedReader = null;
         List list = prepareForSearch.formateMap(criteria);
         String line;
+
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
+
             while ((line = bufferedReader.readLine()) != null) {
                 if (checkString.isStringCorrect(line, list)) {
                     return reform(line);
@@ -31,17 +33,16 @@ public class FindCorrectString {
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new FileNotFoundException("Bad File "+path);
+            e.printStackTrace();
         } finally {
             bufferedReader.close();
         }
+
+
         return null;
     }
 
     private String reform(String line) {
-        return line.replaceAll(",", "")
-                .replaceAll(" :", "")
-                .replaceAll(";", "")
-                .replaceAll("=", " ");
+        return line.replaceAll(",", "").replaceAll(" :", "").replaceAll(";", "").replaceAll("=", " ");
     }
 }
